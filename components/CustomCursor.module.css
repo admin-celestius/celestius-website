@@ -1,0 +1,22 @@
+.cursor {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+  transition-property: width, height, transform;
+  will-change: width, height, transform;
+  transform: translate(-50%, -50%);
+}
+
+.cursorClicked {
+  width: 36px;
+  height: 36px;
+}
+
+.cursorHovered {
+  width: 40px;
+  height: 40px;
+}
+
