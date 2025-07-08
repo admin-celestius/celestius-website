@@ -32,6 +32,10 @@ export default function Navbar() {
         <Link href="/projects" className="hover:underline underline-offset-4">
           Projects
         </Link>
+        {/*  Added Events in Navbar for Easy navigation  */}
+        <Link href="/events" className="hover:underline underline-offset-4">
+          Events
+        </Link>
       </nav>
 
       <div className="hidden md:block">
@@ -48,6 +52,10 @@ export default function Navbar() {
             </Link>
             <Link href="/projects" className="hover:underline" onClick={toggleMenu}>
               Projects
+            </Link>
+            {/*  Added Events in Navbar for Easy navigation  */}
+            <Link href="/events" className="hover:underline underline-offset-4">
+            Events
             </Link>
             <Link href="https://chat.whatsapp.com/GmdMBVnnppv1TuMTbGgAKo" target="_blank" onClick={toggleMenu}>
               Join Now
