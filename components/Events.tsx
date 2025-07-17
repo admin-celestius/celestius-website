@@ -19,17 +19,17 @@ const UpcomingEventsSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           <Card data-aos="fade-up" data-aos-delay="100">
             <CardHeader>
-              <CardTitle>Byteblaze</CardTitle>
+              <CardTitle>AI WorkShop</CardTitle>
               <CardDescription>
-                ✨ A UI/UX Design Challenge — where creativity meets innovation.
-                🧠 A Tech Trivia Contest — test your knowledge and crown the ultimate tech whiz!
+                Unlock the power of Artificial Intelligence in this hands-on workshop.
+                 Learn the fundamentals of AI, explore real-world applications, and build your own AI-driven project using accessible tools. 
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div>
                   <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                  <span>Soon</span>
+                  <span>July 25, 2025</span>
                 </div>
                 <Link href="/eventsregistration">
                  <Button variant="secondary" size="sm">

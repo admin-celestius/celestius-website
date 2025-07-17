@@ -3,40 +3,65 @@ import supabase from "@/lib/supabase";
 type RegistrationProp = {
   name: string;
   email: string;
-  college: string;
+  register_number: string;
   department: string;
   year: string;
-  event: string;
+  section: string;
 };
 
 const validateRegistration = async ({
   name,
   email,
-  college,
+  register_number,
   department,
   year,
-  event,
+  section,
 }: RegistrationProp) => {
+  if (!email.endsWith("@citchennai.net")) {
+    return {
+      success: false,
+      error: { message: "Email must end with @citchennai.net" },
+    };
+  }
+
+  const { data: existing, error: fetchError } = await supabase
+    .from("registrations")
+    .select("*")
+    .or(`email.eq.${email},register_number.eq.${register_number}`);
+
+  if (fetchError) {
+    console.error("Error checking duplicates:", fetchError.message);
+    return { success: false, error: fetchError };
+  }
+
+  if (existing && existing.length > 0) {
+    return {
+      success: false,
+      error: { message: "You have already registered." },
+    };
+  }
+
+  // ✅ 3. Insert into table
   const { data, error } = await supabase
-    .from('registrations')
+    .from("registrations")
     .insert([
       {
         name,
         email,
-        college,
+        register_number,
         department,
         year,
-        event,
+        section,
       },
     ])
-    .select(); 
+    .select();
 
   if (error) {
-    console.error('Error inserting registration:', error.message);
+    console.error("Error inserting registration:", error.message);
     return { success: false, error };
   }
 
-  console.log('Registration inserted:', data);
+  console.log("Registration inserted:", data);
   return { success: true, data };
 };
 
