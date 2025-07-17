@@ -7,12 +7,14 @@ type RegistrationProp = {
   department: string;
   year: string;
   section: string;
+  phone_number:string;
 };
 
 const validateRegistration = async ({
   name,
   email,
   register_number,
+  phone_number,
   department,
   year,
   section,
@@ -23,11 +25,16 @@ const validateRegistration = async ({
       error: { message: "Email must end with @citchennai.net" },
     };
   }
-
+  if(phone_number.length!==10){
+    return {
+      success: false,
+      error: { message: "Enter a Valid Phone Number" },
+    };
+  }
   const { data: existing, error: fetchError } = await supabase
     .from("registrations")
     .select("*")
-    .or(`email.eq.${email},register_number.eq.${register_number}`);
+    .or(`email.eq.${email},register_number.eq.${register_number},phone_number.eq.${Number.parseInt(phone_number)}`);
 
   if (fetchError) {
     console.error("Error checking duplicates:", fetchError.message);
@@ -42,6 +49,7 @@ const validateRegistration = async ({
   }
 
   // ✅ 3. Insert into table
+  let number = Number.parseInt(phone_number);
   const { data, error } = await supabase
     .from("registrations")
     .insert([
@@ -50,6 +58,7 @@ const validateRegistration = async ({
         email,
         register_number,
         department,
+        phone_number:number,
         year,
         section,
       },

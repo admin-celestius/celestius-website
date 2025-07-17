@@ -6,6 +6,7 @@ import SelectInput from "./ui/selectinput";
 const  EventRegistrationForm=()=> {
   const [name,setName] = useState<string>('');
   const [email,setEmail] = useState<string>('');
+  const [phone_number,setPhoneNumber] = useState<string>('');
   const [register_number,setRegisterNumber] = useState<string>('');
   const [department,setDepartment] = useState<string>('');
   const [year,setYear] = useState<string>('');
@@ -20,11 +21,11 @@ const  EventRegistrationForm=()=> {
         <form className="flex flex-col space-y-2" onSubmit={async(e)=>{
           setResult('');
           e.preventDefault();
-          if(name && email && register_number && department && year && section){
-          let result = await validateRegistration({name,email,register_number,department,year,section})
+          if(name && email && register_number && department && year && section && phone_number){
+          let result = await validateRegistration({name,email,register_number,department,year,section,phone_number})
           if (result.success){
             alert("Registration Successfull!")
-            setName('');setEmail('');setRegisterNumber('');setDepartment('');setYear('');setSection('');setYear('');
+            setName('');setEmail('');setRegisterNumber('');setDepartment('');setYear('');setSection('');setYear(''),setPhoneNumber('');
           }
           else{
             alert(result.error?.message);
@@ -34,6 +35,7 @@ const  EventRegistrationForm=()=> {
           <RegisterText label="Full Name" value={name } placeholder="Your Name" type="text" onChange={setName}/>
           <RegisterText label="College Mail Address" value={email as string} placeholder="Your College Email" type="email" onChange={setEmail}/>
           <RegisterText label="Register Number" value={register_number as string} placeholder="Your Register Number" type="text" onChange={setRegisterNumber} />
+          <RegisterText label="Phone Number" value={phone_number} type="number" placeholder="Your Phone Number" onChange={setPhoneNumber} />
           <SelectInput label={"Department"}
           onChange={setDepartment}
           value={department}
