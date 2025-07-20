@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { CalendarIcon } from '@/components/ui/svgs'; // Adjust the import path as needed
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'; // Adjust the import path as needed
 import { Button } from '@/components/ui/button'; // Adjust the import path as needed
+import Link from 'next/link';
 
 const UpcomingEventsSection = () => {
   return (
@@ -16,6 +17,28 @@ const UpcomingEventsSection = () => {
       <div className="container px-4 md:px-6 space-y-4">
         <h2 className="text-3xl md:text-4xl font-bold text-begin" data-aos="fade-up">Upcoming Events</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Card data-aos="fade-up" data-aos-delay="100">
+            <CardHeader>
+              <CardTitle>AI WorkShop</CardTitle>
+              <CardDescription>
+                Unlock the power of Artificial Intelligence in this hands-on workshop.
+                 Learn the fundamentals of AI, explore real-world applications, and build your own AI-driven project using accessible tools. 
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CalendarIcon className="w-5 h-5 mr-2 inline" />
+                  <span>July 25, 2025</span>
+                </div>
+                <Link href="/eventsregistration">
+                 <Button variant="secondary" size="sm">
+                  Register
+                </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
           <Card data-aos="fade-up" data-aos-delay="100">
             <CardHeader>
               <CardTitle>Workshops</CardTitle>
