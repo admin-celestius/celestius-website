@@ -8,9 +8,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Button } from "@/components/ui/button";
 import AboutSection from "./about";
-import UpcomingEventsSection from "./Events";
+// import UpcomingEventsSection from "./Events";
 import ContactSection from "./contactus";
-import { GitHubIds } from "./Github";
+// import { GitHubIds } from "./Github";
 import Navbar from "./Navbar";
 
 export default function LandingPage() {
@@ -50,9 +50,9 @@ export default function LandingPage() {
         <AboutSection />
       </Element>
 
-      <Element name="events" className="bg-muted">
+      {/* <Element name="events" className="bg-muted">
         <UpcomingEventsSection />
-      </Element>
+      </Element> */}
 
       <Element name="contact" className="bg-background">
         <ContactSection />
