@@ -24,7 +24,7 @@ const UpcomingEventsSection = () => {
               <CardTitle>AI Workshop</CardTitle>
               <CardDescription>
                 Unlock the power of Artificial Intelligence in this hands-on workshop.
-                Learn the fundamentals of AI, explore real-world applications, and build your own AI-driven project using accessible tools.
+                Learn the fundamentals of AI, explore real-world applications, and build your own AI-driven project using accessible tools. 
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -48,4 +48,3 @@ const UpcomingEventsSection = () => {
 };
 
 export default UpcomingEventsSection;
-  
