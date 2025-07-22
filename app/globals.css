@@ -39,5 +39,10 @@
     cursor: none !important;
   }
 
+  @media (max-width: 768px) {
+  :root:not(#custom-cursor) * {
+    cursor: auto !important;
+  }
+}
 }
 
